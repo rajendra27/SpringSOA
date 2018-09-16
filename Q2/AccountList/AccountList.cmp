@@ -1,0 +1,36 @@
+<aura:component controller="AccountLightningController">
+    <aura:attribute name="data" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div style="height: 300px">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Opportunity Name">Account Name</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Account Name">Number of Contacts</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="Account Name">CreatedDate</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.data}" var="item">
+                    <tr class="slds-hint-parent">
+                        <th data-label="Account Name" scope="row">
+                            <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);" tabindex="-1">{!item.Name}</a></div>
+                        </th>
+                        <td data-label="No Of Contacts">
+                            <div class="slds-truncate" title="Cloudhub">{!item.Number_of_Contacts__c}</div>
+                        </td>
+                        <td data-label="Created Date">
+                            <div class="slds-truncate" title="Cloudhub">{!item.CreatedDate}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>
